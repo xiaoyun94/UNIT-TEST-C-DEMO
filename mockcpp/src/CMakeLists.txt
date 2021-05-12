@@ -11,8 +11,6 @@ IF(NOT DEFINED MOCKCPP_ALLOW_MI)
   SET(MOCKCPP_ALLOW_MI TRUE)
 ENDIF(NOT DEFINED MOCKCPP_ALLOW_MI)
 
-SET(MOCKCPP_SRC_ROOT ${CMAKE_SOURCE_DIR})
-
 IF(NOT DEFINED MOCKCPP_XUNIT)
    SET(MOCKCPP_XUNIT STDEXCEPT)
 ENDIF()
@@ -224,17 +222,17 @@ ELSE()
    SET(MOCKCPP_SRCS ${MOCKCPP_SRCS} ports/failure/stdexcept_report_failure.cpp)
 ENDIF()
 
-IF(MSVC)
+IF(MSVC OR MINGW)
    SET(MOCKCPP_SRCS 
        ${MOCKCPP_SRCS} 
        WinCodeModifier.cpp
    ) 
-ELSE(MSVC)
+ELSE()
    SET(MOCKCPP_SRCS 
        ${MOCKCPP_SRCS} 
        UnixCodeModifier.cpp
    )
-ENDIF(MSVC)
+ENDIF()
 ######################################################
 SET(MOCKCPP_HEADERS_PATH ${MOCKCPP_SRC_ROOT}/include/mockcpp)
 
