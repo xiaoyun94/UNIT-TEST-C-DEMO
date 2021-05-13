@@ -1,3 +1,17 @@
+# 覆盖率工具安装
+## WINDOWS+MINGW
+```bash
+#请确保在管理员权限下执行
+cd lcov
+mingw32-make install
+```
+## LINUX
+```bash
+#请确保在管理员权限下执行
+cd lcov
+make install
+```
+
 # 编译
 ## WINDOWS+MINGW
 ```bash
